@@ -1,0 +1,29 @@
+# http://www.appveyor.com/docs/appveyor-yml
+# mostly copied from nan appveyor.yml
+os: Visual Studio 2015
+
+environment:
+  matrix:
+    - electron_version: 1.8.4
+    - electron_version: 4.0.1
+
+platform:
+  - x86
+
+# git clone depth
+clone_depth: 5
+
+# Install scripts. (runs after repo cloning)
+install:
+  - ps: Install-Product node 8.10.0
+  - npm install
+
+build_script:
+  - npm install node-libcurl --runtime=electron --target=%electron_version --disturl=https://atom.io/download/atom-shell --save
+
+
+# Don't actually deploy.
+deploy: off
+
+# Set build version format here instead of in the admin panel.
+version: "{build}"
