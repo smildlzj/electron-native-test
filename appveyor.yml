@@ -19,7 +19,7 @@ install:
   - npm install
 
 build_script:
-  - npm install node-libcurl --runtime=electron --target=%electron_version --disturl=https://atom.io/download/atom-shell --save
+  - npm install node-libcurl --runtime=electron --target=%electron_version% --disturl=https://atom.io/download/atom-shell --save
 
 
 # Don't actually deploy.
