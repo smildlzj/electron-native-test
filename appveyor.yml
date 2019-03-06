@@ -8,8 +8,6 @@ environment:
       lib: node-libcurl
     - electron_version: 4.0.1
       lib: node-libcurl
-    - electron_version: 4.0.1
-      lib: ws
 
 platform:
   - x86
@@ -24,8 +22,11 @@ install:
   - npm install
 
 build_script:
-  - npm install %lib% --runtime=electron --target=%electron_version% --disturl=https://atom.io/download/atom-shell --save
-  - cd node_modules/%lib%/ && node-pre-gyp package
+  - export npm_config_runtime=electron
+  - export npm_config_target=%electron_version%
+  - export npm_config_disturl=https://atom.io/download/atom-shell
+  - npm install %lib% --save
+  - cd node_modules/%lib%/ && node-pre-gyp package 
 
 
 artifacts:
