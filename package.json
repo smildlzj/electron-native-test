@@ -1,6 +1,11 @@
 {
     "name": "electron-native-test",
     "version": "0.0.1",
-    "devDependencies": {
+    "devDependencies": {},
+    "scripts": {
+      "pregyp": "node-pre-gyp"
+    },
+    "dependencies": {
+        "node-pre-gyp": "^0.12.0"
     }
 }
