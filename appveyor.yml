@@ -38,8 +38,8 @@ deploy:
   auth_token:
     secure: NLYzbwHiP2gxxQ0p+Wb0sJphYmLcYVNOS/BbB0aZwFZTJiahe2mEQeqT/Rp+qEVZ
   artifact: /.*\.gz/
-  draft: true
-  prerelease: false
+  draft: false
+  prerelease: true
   on:
     branch: master                
 
