@@ -8,6 +8,7 @@ environment:
       lib: node-libcurl
     - electron_version: 4.0.1
       lib: node-libcurl
+      lib: ws
 
 platform:
   - x86
