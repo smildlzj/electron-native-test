@@ -6,6 +6,7 @@ environment:
   matrix:
     - electron_version: 1.8.4
     - electron_version: 4.0.1
+    - lib: node_libcurl
 
 platform:
   - x86
@@ -16,11 +17,12 @@ clone_depth: 5
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node 8.10.0
+  - npm install -g node-pre-gyp
   - npm install
 
 build_script:
   - npm install %lib% --runtime=electron --target=%electron_version% --disturl=https://atom.io/download/atom-shell --save
-  - cd node_modules/%lib%/ && npm run pregyp package
+  - cd node_modules/%lib%/ && node-pre-gyp package
 
 
 deploy:
