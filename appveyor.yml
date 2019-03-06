@@ -39,5 +39,3 @@ deploy:
     branch: master                
     APPVEYOR_REPO_TAG: true 
 
-# Set build version format here instead of in the admin panel.
-version: "{build}"
