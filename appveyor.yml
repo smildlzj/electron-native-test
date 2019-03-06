@@ -26,13 +26,17 @@ build_script:
   - cd node_modules/%lib%/ && node-pre-gyp package
 
 
+artifacts:
+- path: /node_modules/node-libcurl/build/stage
+  name: '*.gz'
+
 deploy:
   release: prebuild
   description: 'Release description'
   provider: GitHub
   auth_token:
     secure: NLYzbwHiP2gxxQ0p+Wb0sJphYmLcYVNOS/BbB0aZwFZTJiahe2mEQeqT/Rp+qEVZ
-  artifact: /node_modules/%lib%/build/stage/.*\.gz/
+  artifact: '*.gz'
   draft: true
   prerelease: false
   on:
